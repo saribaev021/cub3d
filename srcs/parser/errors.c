@@ -6,7 +6,7 @@
 /*   By: ndreadno <ndreadno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 21:43:37 by ndreadno          #+#    #+#             */
-/*   Updated: 2020/08/26 10:20:17 by ndreadno         ###   ########.fr       */
+/*   Updated: 2020/08/27 18:34:04 by ndreadno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,39 @@
 static void		ft_errors_print_2(t_vars *vars)
 {
 	if (vars->parse.erorrs.flag_f)
-		ft_putendl_fd("error color_f", 1);
+		ft_putendl_fd("Error\ncolor_f", 1);
 	if (vars->parse.erorrs.flag_c)
-		ft_putendl_fd("error color_c", 1);
+		ft_putendl_fd("Error\ncolor_c", 1);
 	if (vars->parse.erorrs.flag_smbl)
-		ft_putendl_fd("error\n invalid characters", 1);
+		ft_putendl_fd("Error\ninvalid characters", 1);
 	if (vars->parse.erorrs.flag_malloc_error == 1)
-		ft_putendl_fd("error\n malloc erorr", 1);
+		ft_putendl_fd("Error\n malloc erorr", 1);
 	if (vars->parse.erorrs.flag_invalid_file == 1)
-		ft_putendl_fd("error\ninvalid file", 1);
+		ft_putendl_fd("Error\ninvalid file", 1);
 	if (vars->parse.erorrs.flag_invalid_arg == 1)
-		ft_putendl_fd("error\ninvalid arg", 1);
+		ft_putendl_fd("Error\ninvalid arg", 1);
 	if (vars->parse.erorrs.flag_empty_line == 0)
-		ft_putendl_fd("error\nno empty line", 1);
+		ft_putendl_fd("Error\nno empty line", 1);
 	if (vars->parse.erorrs.flag_invalid_map == 1)
-		ft_putendl_fd("error\ninvalid map", 1);
+		ft_putendl_fd("Error\ninvalid map", 1);
 	if (vars->parse.erorrs.flag_gnl == 1)
-		ft_putendl_fd("error\n gnl return -1", 1);
+		ft_putendl_fd("Error\ngnl return -1", 1);
 }
 
 static void		ft_errors_print(t_vars *vars)
 {
 	if (vars->parse.erorrs.flag_r)
-		ft_putendl_fd("error size screen", 1);
+		ft_putendl_fd("Error\nsize screen", 1);
 	if (vars->parse.erorrs.flag_no)
-		ft_putendl_fd("error texture 'NO'", 1);
+		ft_putendl_fd("Error\ntexture 'NO'", 1);
 	if (vars->parse.erorrs.flag_so)
-		ft_putendl_fd("error texture 'SO'", 1);
+		ft_putendl_fd("Error\ntexture 'SO'", 1);
 	if (vars->parse.erorrs.flag_we)
-		ft_putendl_fd("error texture 'WE'", 1);
+		ft_putendl_fd("Error\ntexture 'WE'", 1);
 	if (vars->parse.erorrs.flag_ea)
-		ft_putendl_fd("error texture 'EA'", 1);
+		ft_putendl_fd("Error\ntexture 'EA'", 1);
 	if (vars->parse.erorrs.flag_s)
-		ft_putendl_fd("error\nsprite", 1);
+		ft_putendl_fd("Error\nsprite", 1);
 	ft_errors_print_2(vars);
 }
 

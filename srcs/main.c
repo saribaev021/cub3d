@@ -6,7 +6,7 @@
 /*   By: ndreadno <ndreadno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 23:30:33 by ndreadno          #+#    #+#             */
-/*   Updated: 2020/08/26 19:54:47 by ndreadno         ###   ########.fr       */
+/*   Updated: 2020/08/27 10:02:58 by ndreadno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int				main(int argc, char **argv)
 	int		fd;
 
 	init(&vars);
-	if (argc > 1 && argc < 4)
+	if (argc > 1)
 	{
 		if (ft_strncmp(".cub", (ft_strchr(argv[1], '\0') - 4), 4) == 0)
 		{

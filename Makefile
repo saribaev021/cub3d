@@ -6,11 +6,12 @@
 #    By: ndreadno <ndreadno@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/23 17:38:21 by ndreadno          #+#    #+#              #
-#    Updated: 2020/08/26 20:18:37 by ndreadno         ###   ########.fr        #
+#    Updated: 2020/08/27 17:17:19 by ndreadno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
+LIB  = libft.a libmlx.dylib
 HEADER = srcs/cub3d.h
 SOURCES := srcs/main.c srcs/bmp.c srcs/parser/parse.c srcs/parser/parse_parameter.c \
 			srcs/parser/errors.c srcs/parser/flag.c srcs/parser/get_file.c srcs/parser/init.c \
@@ -28,22 +29,25 @@ OBJ := srcs/main.o srcs/bmp.o srcs/parser/parse.o srcs/parser/parse_parameter.o 
 			srcs/sprites/add_sort_sprites.o srcs/sprites/sprites.o  srcs/sprites/collected_sp_get_sp_color.o \
 			srcs/draw_wall.o srcs/paint_2d.o srcs/images.o srcs/paint_3d.o
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -g
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	cc $(FLAGS) -I $(HEADER) $(OBJ)  libft.a libmlx.dylib -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): $(OBJ) $(LIB)
+	cc $(FLAGS) -I $(HEADER) $(OBJ) $(LIB) -framework OpenGL -framework AppKit -o $(NAME)
 %.o: %.c
 	gcc $(FLAGS) -c $< -o $@
-lib:
+$(LIB):
 	$(MAKE) -C srcs/libft
 	$(MAKE) -C mlx
+	@mv mlx//libmlx.dylib .
+	@mv srcs/libft/libft.a .
 clean:
 	$(MAKE) -C srcs/libft clean
 	$(MAKE) -C mlx clean
 	@rm -f $(OBJ)
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f $(LIB)
 re: fclean all
 .PHONY: all clean fclean re

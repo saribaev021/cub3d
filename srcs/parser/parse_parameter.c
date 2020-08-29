@@ -6,7 +6,7 @@
 /*   By: ndreadno <ndreadno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/23 13:40:24 by ndreadno          #+#    #+#             */
-/*   Updated: 2020/08/26 13:53:13 by ndreadno         ###   ########.fr       */
+/*   Updated: 2020/08/27 18:13:51 by ndreadno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,23 @@ static	void	get_path_tex(t_vars *vars, char *str, int i, int flag)
 	{
 		if (flag == 1)
 			if (vars->parse.tex_no++ < 0 || (vars->l_tx.tex_no.rl_pth =
-			ft_strtrim(str + i, " \t\v\r")) == NULL)
+			ft_strtrim(str + i, " ")) == NULL)
 				vars->parse.erorrs.flag_malloc_error = 1;
 		if (flag == 2)
 			if (vars->parse.tex_so++ < 0 || (vars->l_tx.tex_so.rl_pth =
-			ft_strtrim(str + i, " \t\v\r")) == NULL)
+			ft_strtrim(str + i, " ")) == NULL)
 				vars->parse.erorrs.flag_malloc_error = 1;
 		if (flag == 3)
 			if (vars->parse.tex_we++ < 0 || (vars->l_tx.tex_we.rl_pth =
-			ft_strtrim(str + i, " \t\v\r")) == NULL)
+			ft_strtrim(str + i, " ")) == NULL)
 				vars->parse.erorrs.flag_malloc_error = 1;
 		if (flag == 4)
 			if (vars->parse.tex_ea++ < 0 || (vars->l_tx.tex_ea.rl_pth =
-			ft_strtrim(str + i, " \t\v\r")) == NULL)
+			ft_strtrim(str + i, " ")) == NULL)
 				vars->parse.erorrs.flag_malloc_error = 1;
 		if (flag == 5)
 			if (vars->parse.s++ < 0 || (vars->sp.rl_pth =
-			ft_strtrim(str + i, " \t\v\r")) == NULL)
+			ft_strtrim(str + i, " ")) == NULL)
 				vars->parse.erorrs.flag_malloc_error = 1;
 		vars->parse.erorrs.flag_smbl = 0;
 	}
@@ -118,16 +118,16 @@ void			ft_parameter(t_vars *vars, char *str, int i)
 	else if (str[i] == 'N' && str[i + 1] == 'O')
 		get_path_tex(vars, str, i + 2, 1);
 	else if (str[i] == 'S' && str[i + 1] == 'O')
-		get_path_tex(vars, str, i + 3, 2);
+		get_path_tex(vars, str, i + 2, 2);
 	else if (str[i] == 'W' && str[i + 1] == 'E')
-		get_path_tex(vars, str, i + 3, 3);
+		get_path_tex(vars, str, i + 2, 3);
 	else if (str[i] == 'E' && str[i + 1] == 'A')
-		get_path_tex(vars, str, i + 3, 4);
+		get_path_tex(vars, str, i + 2, 4);
 	else if (str[i] == 'S')
-		get_path_tex(vars, str, i + 3, 5);
-	else if (str[i] == 'F')
+		get_path_tex(vars, str, i + 2, 5);
+	else if (str[i] == 'F' && str[i + 1] == ' ')
 		get_color(vars, str, i + 1, 1);
-	else if (str[i] == 'C')
+	else if (str[i] == 'C' && str[i + 1] == ' ')
 		get_color(vars, str, i + 1, 2);
 	if (vars->parse.erorrs.flag_smbl == 1 ||
 	vars->parse.erorrs.flag_malloc_error == 1)

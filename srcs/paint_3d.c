@@ -6,7 +6,7 @@
 /*   By: ndreadno <ndreadno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 21:27:23 by ndreadno          #+#    #+#             */
-/*   Updated: 2020/08/26 12:21:17 by ndreadno         ###   ########.fr       */
+/*   Updated: 2020/08/27 10:04:22 by ndreadno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,12 @@ void			start(t_vars *vars, int fd, int argc, char **argv)
 	get_sprite(vars);
 	create_image(vars);
 	paint_3d(vars);
-	if (argc == 3)
+	if (argc >= 3)
 	{
 		if (ft_strncmp("--save", argv[2], 6) == 0)
-			screenshot(vars);
-		else
 		{
-			vars->parse.erorrs.flag_invalid_arg = 1;
-			ft_errors(vars);
+			screenshot(vars);
+			exit(0);
 		}
-		exit(0);
 	}
 }

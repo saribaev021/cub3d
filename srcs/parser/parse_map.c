@@ -6,7 +6,7 @@
 /*   By: ndreadno <ndreadno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/23 16:14:31 by ndreadno          #+#    #+#             */
-/*   Updated: 2020/08/26 19:50:15 by ndreadno         ###   ########.fr       */
+/*   Updated: 2020/08/27 17:27:29 by ndreadno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ static void		ft_check_symbol(t_vars *vars, char **str)
 	y = 0;
 	while (str[y] != NULL)
 	{
+		x = 0;
 		while (str[y][x] == '1' || str[y][x] == '0' || str[y][x] == 'N'
 		|| str[y][x] == 'W' || str[y][x] == 'E'
 		|| str[y][x] == 'S' || str[y][x] == '2' || str[y][x] == ' ')
 			x++;
+		if (str[y][x] != '\0')
+			vars->parse.erorrs.flag_invalid_map = 1;
 		y++;
 	}
-	if (str[y] != NULL)
-	{
-		vars->parse.erorrs.flag_invalid_map = 1;
+	if (vars->parse.erorrs.flag_invalid_map == 1)
 		ft_errors(vars);
-	}
 }
 
 static void		ft_find_max_w_h(t_vars *vars, char **str)

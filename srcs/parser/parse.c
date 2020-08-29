@@ -6,7 +6,7 @@
 /*   By: ndreadno <ndreadno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 10:24:19 by ndreadno          #+#    #+#             */
-/*   Updated: 2020/08/26 11:55:39 by ndreadno         ###   ########.fr       */
+/*   Updated: 2020/08/27 17:29:31 by ndreadno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	parse_parameter(t_vars *vars, char *str)
 	vars->parse.erorrs.flag_smbl = 1;
 	i = ft_space(str, i);
 	if (ft_check_empty_line(vars, str, i) == 1)
+	{
+		vars->parse.erorrs.flag_smbl = 0;
 		return ;
+	}
 	else if (str[i] == '\0')
 		return ;
 	else
